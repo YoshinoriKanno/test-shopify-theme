@@ -1,0 +1,50 @@
+<section>
+  <h3>{{section.settings.title }}</h3>
+  <dl>
+    {% for block in section.blocks %}
+      <dt>{{ block.settings.question }}</dt>
+      <dd>{{ block.settings.answer }}</dd>
+    {% endfor %}
+  </dl>
+</section>
+
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "FAQ",
+      "label": "FAQのタイトル"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQの項目",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "default": "質問",
+          "label": "質問"
+        },
+        {
+          "type": "text",
+          "id": "answer",
+          "default": "回答",
+          "label": "回答"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ"
+    }
+  ]
+}
+{% endschema %}
+
